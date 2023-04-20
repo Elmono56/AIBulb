@@ -1,0 +1,195 @@
+{
+    "categories": [
+        {
+            "id": 1,
+            "description": "Global Services"
+        },
+        {
+            "id": 2,
+            "description": "Local Services"
+        }
+    ],
+    "applications": [
+        {
+            "id": 1,
+            "name": "Netflix",
+            "category_id": 1,
+            "description": "Movies and Series Streaming",
+            "reviews": [
+                {
+                    "id": 1,
+                    "username": "User1",
+                    "rating": 5,
+                    "comment": "Comment1"
+                },
+                {
+                    "id": 2,
+                    "username": "User2",
+                    "rating": 4,
+                    "comment": "Comment2"
+                }
+            ],
+            "transactions": [
+                {
+                    "id": 1,
+                    "user_id": 1,
+                    "amount": 10.50,
+                    "transaction_date": "2023-04-15 10:30:00"
+                },
+                {
+                    "id": 2,
+                    "user_id": 2,
+                    "amount": 5.25,
+                    "transaction_date": "2023-04-15 11:00:00"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Ticketing",
+            "category_id": 2,
+            "description": "Red Hot Chili Peppers concert",
+            "reviews": [
+                {
+                    "id": 3,
+                    "username": "User3",
+                    "rating": 3,
+                    "comment": "Comment3"
+                }
+            ],
+            "transactions": []
+        },
+        {
+            "id": 3,
+            "name": "Laundry Service",
+            "category_id": 2,
+            "description": "Local laundry service",
+            "reviews": [
+                {
+                    "id": 4,
+                    "username": "User4",
+                    "rating": 4,
+                    "comment": "Comment4"
+                }
+            ],
+            "transactions": [
+                {
+                    "id": 3,
+                    "user_id": 3,
+                    "amount": 15.00,
+                    "transaction_date": "2023-04-16 12:00:00"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Taxi Service",
+            "category_id": 2,
+            "description": "Local taxi service",
+            "reviews": [],
+            "transactions": [
+                {
+                    "id": 4,
+                    "user_id": 2,
+                    "amount": 20.00,
+                    "transaction_date": "2023-04-17 14:30:00"
+                }
+            ]
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "name": "Kevin",
+            "last name": "Smith",
+            "username": "User1",
+            "email": "user1@example.com",
+            "password": "password1",
+            "wallet": {
+                "tipo": "PayPal",
+                "usuario": "username1",
+                "token": "xxxxxxxxxxxxxxxxxxxxxxx"
+                },
+            "reviews": [
+                {
+                    "id": 1,
+                    "app_id": 1,
+                    "rating": 5,
+                    "comment": "Comment1"
+                }
+            ],
+            "transactions": [
+                {
+                    "id": 1,
+                    "app_id": 1,
+                    "amount": 10.50,
+                    "transaction_date": "2023-04-15 10:30:00"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Oscar",
+            "last name": "Barahona",
+            "username": "User2",
+            "email": "user2@example.com",
+            "password": "password2",
+            "wallet": {
+                "tipo": "PayPal",
+                "usuario": "username2",
+                "token": "xxxxxxxxxxxxxxxxxxxxxxx"
+                },
+            "reviews": [
+                {
+                    "id": 2,
+                    "app_id": 1,
+                    "rating": 4,
+                    "comment": "Comment2"
+                }
+            ],
+            "transactions": [
+                {
+                    "id": 3,
+                    "app_id": 1,
+                    "amount": 5.25,
+                    "transaction_date": "2023-04-15 11:00:00"
+                }, 
+                {
+                    "id": 4,
+                    "app_id": 4,
+                    "amount": 20.00,
+                    "transaction_date": "2023-04-17 14:30:00"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "username": "User3",
+            "name": "Peter",
+            "last name": "Parker",
+            "email": "user3@example.com",
+            "password": "password3",
+            "wallet": {
+                "tipo": "PayPal",
+                "usuario": "username3",
+                "token": "xxxxxxxxxxxxxxxxxxxxxxx"
+                },
+            "reviews": [
+                {
+                    "id": 3,
+                    "app_id": 2,
+                    "rating": 3,
+                    "comment": "Comment3"
+                }
+            ],
+            "transactions": [
+                {
+                    "id": 4,
+                    "app_id": 3,
+                    "amount": 15.00,
+                    "transaction_date": "2023-04-16 12:00:00"
+                }
+            ]
+        }
+    ]
+}
