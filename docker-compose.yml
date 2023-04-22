@@ -1,0 +1,181 @@
+version: '3.8'
+
+services:
+  aiConfig1:
+    image: mongo:latest
+    command: mongod --configsvr --replSet repConfAiBulb --port 27017
+    volumes:
+      - aiconfig1:/data/configdb
+    networks:
+      - mongo-vpn
+
+  aiConfig2:
+    image: mongo:latest
+    command: mongod --configsvr --replSet repConfAiBulb --port 27017
+    volumes:
+      - aiconfig2:/data/configdb
+    networks:
+      - mongo-vpn
+
+  aiRouter1:
+    image: mongo:latest
+    command: mongos --configdb repConfAiBulb/aiConfig1:27017,aiConfig2:27017 --port 27017
+    depends_on:
+      - aiConfig1
+      - aiConfig2
+    networks:
+      - mongo-vpn
+
+  aiRouter2:
+    image: mongo:latest
+    command: mongos --configdb repConfAiBulb/aiConfig1:27017,aiConfig2:27017 --port 27017
+    depends_on:
+      - aiConfig1
+      - aiConfig2
+    networks:
+      - mongo-vpn
+    
+  aiRouter3:
+    image: mongo:latest
+    command: mongos --configdb repConfAiBulb/aiConfig1:27017,aiConfig2:27017 --port 27017
+    depends_on:
+      - aiConfig1
+      - aiConfig2
+    networks:
+      - mongo-vpn
+
+  eastCoast:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repUSA --port 27017
+    volumes:
+      - eastCoast:/data/db
+    networks:
+      - mongo-vpn
+
+  westCoast:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repUSA --port 27017
+    volumes:
+      - westCoast:/data/db
+    networks:
+      - mongo-vpn
+
+  usa-arb:
+    image: mongo:latest
+    command: mongod --port 27017 --dbpath /data/db --replSet repUSA --oplogSize 128 --noprealloc --nojournal --smallfiles --bind_ip_all --noauth --noIndexBuildRetry --quiet --oplogSize 128
+    volumes:
+      - usa-arb:/data/db
+    networks:
+      - mongo-vpn
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == usa
+
+  norte:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repMex --port 27017
+    volumes:
+      - norte:/data/db
+    networks:
+      - mongo-vpn
+
+  centroSur:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repMex --port 27017
+    volumes:
+      - centroSur:/data/db
+    networks:
+      - mongo-vpn
+
+  mex-arb:
+    image: mongo:latest
+    command: mongod --port 27017 --dbpath /data/db --replSet repMex --oplogSize 128 --noprealloc --nojournal --smallfiles --bind_ip_all --noauth --noIndexBuildRetry --quiet --oplogSize 128
+    volumes:
+      - mex-arb:/data/db
+    networks:
+      - mongo-vpn
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == mex
+
+  sanJose:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repCR --port 27017
+    volumes:
+      - sanJose:/data/db
+    networks:
+      - mongo-vpn
+
+  limon:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repCR --port 27017
+    volumes:
+      - limon:/data/db
+    networks:
+      - mongo-vpn
+
+  cr-arb:
+    image: mongo:latest
+    command: mongod --port 27017 --replSet repCR --oplogSize 128 --noprealloc --nojournal --smallfiles --bind_ip_all --noauth --noIndexBuildRetry --quiet --oplogSize 128
+    volumes:
+      - cr-arb:/data/db
+    networks:
+      - mongo-vpn
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == costa_rica
+
+  guate:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repGuate --port 27017
+    volumes:
+      - guate:/data/db
+    networks:
+      - mongo-vpn
+    
+  xela:
+    image: mongo:latest
+    command: mongod --shardsvr --replSet repGuate --port 27017
+    volumes:
+      - xela:/data/db
+    networks:
+      - mongo-vpn
+
+  guate-arb:
+    image: mongo:latest
+    command: mongod --port 27017 --replSet repGuate --oplogSize 128 --noprealloc --nojournal --smallfiles --bind_ip_all --noauth --noIndexBuildRetry --quiet --oplogSize 128
+    volumes:
+      - guate-arb:/data/db
+    networks:
+      - mongo-cluster
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == guatemala
+
+  volumes:
+    aiconfig1
+    aiconfig2
+    eastCoast
+    westCoast
+    usa-arb
+    norte
+    centroSur
+    mex-arb
+    sanJose
+    limon
+    cr-arb
+    guate
+    xela
+    guate-arb
+  
+  networks:
+    mongo-vpn:
+      driver: bridge
