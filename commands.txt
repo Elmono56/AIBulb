@@ -13,30 +13,39 @@ rs.initiate(
 rs.initiate(
     {
      _id: "repUSA",
-     configsvr: true,
      members: [
-       { _id : 0, host : "eastCoast:27017" },
-       { _id : 1, host : "westCoast:27017" }
+       { _id : 0, host : "10.10.0.7:27017" },
+       { _id : 1, host : "10.10.0.8:27017" }
      ]
    }
  );
 
-rs.conf = {
-     _id: "repUSA",
-     configsvr: true,
+rs.initiate(
+    {
+     _id: "repMex",
      members: [
-       { _id : 0, host : "eastCoast:27017" },
-       { _id : 1, host : "westCoast:27017" }
+       { _id : 0, host : "10.10.0.9:27017" },
+       { _id : 1, host : "10.10.0.10:27017" }
      ]
-};
+   }
+ );
 
 rs.initiate(
     {
      _id: "repCR",
-     configsvr: true,
      members: [
-       { _id : 0, host : "sanJose:27017" },
-       { _id : 1, host : "limon:27017" }
+       { _id : 0, host : "10.10.0.11:27017" },
+       { _id : 1, host : "10.10.0.12:27017" }
+     ]
+   }
+);
+
+rs.initiate(
+    {
+     _id: "repGuate",
+     members: [
+       { _id : 0, host : "10.10.0.13:27017" },
+       { _id : 1, host : "10.10.0.14:27017" }
      ]
    }
 );
