@@ -1,3 +1,4 @@
+# MongoDB Replica Set Configuration
 rs.initiate(
     {
      _id: "repConfAiBulb",
@@ -9,7 +10,7 @@ rs.initiate(
    }
  );
 
-
+# MongoDB Replica Set Shard Servers
 rs.initiate(
     {
      _id: "repUSA",
@@ -49,3 +50,14 @@ rs.initiate(
      ]
    }
 );
+
+# MongoDB Sharding Configuration
+sh.addShard( "repUSA/10.10.0.8:27017");
+sh.addShard( "repMex/10.10.0.10:27017");
+sh.addShard( "repCR/10.10.0.12:27017");
+sh.addShard( "repGuate/10.10.0.13:27017");
+
+sh.addShardTag("repUSA", "Estados Unidos");
+sh.addShardTag("repMex", "Mexico");
+sh.addShardTag("repCR", "Costa Rica");
+sh.addShardTag("repGuate", "Guatemala");
