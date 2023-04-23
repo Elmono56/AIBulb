@@ -1,0 +1,42 @@
+rs.initiate(
+    {
+     _id: "repConfAiBulb",
+     configsvr: true,
+     members: [
+       { _id : 0, host : "10.10.0.5:27017" },
+       { _id : 1, host : "10.10.0.6:27017" }
+     ]
+   }
+ );
+
+
+rs.initiate(
+    {
+     _id: "repUSA",
+     configsvr: true,
+     members: [
+       { _id : 0, host : "eastCoast:27017" },
+       { _id : 1, host : "westCoast:27017" }
+     ]
+   }
+ );
+
+rs.conf = {
+     _id: "repUSA",
+     configsvr: true,
+     members: [
+       { _id : 0, host : "eastCoast:27017" },
+       { _id : 1, host : "westCoast:27017" }
+     ]
+};
+
+rs.initiate(
+    {
+     _id: "repCR",
+     configsvr: true,
+     members: [
+       { _id : 0, host : "sanJose:27017" },
+       { _id : 1, host : "limon:27017" }
+     ]
+   }
+);
