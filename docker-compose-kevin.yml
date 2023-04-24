@@ -40,6 +40,35 @@ services:
     volumes:
       - norte:/data/db
 
+  aiRouter1:      # 10.10.0.2
+    image: mongo:latest
+    container_name: aiRouter1
+    command: mongos --port 27017 --configdb repConfAiBulb/10.10.0.5:27017,10.10.0.6:27017 --bind_ip_all
+    ports:
+      - "27027:27017"
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.2
+
+  aiRouter2:      # 10.10.0.3
+    image: mongo:latest
+    container_name: aiRouter2
+    command: mongos --port 27017 --configdb repConfAiBulb/10.10.0.5:27017,10.10.0.6:27017 --bind_ip_all
+    ports:
+      - "27028:27017"
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.3
+    
+  aiRouter3:    # 10.10.0.4
+    image: mongo:latest
+    container_name: aiRouter3
+    command: mongos --port 27017 --configdb repConfAiBulb/10.10.0.5:27017,10.10.0.6:27017 --bind_ip_all
+    ports:
+      - "27029:27017"
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.4
 
 volumes:
   aiconfig1:
