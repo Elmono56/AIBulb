@@ -1,3 +1,6 @@
+# How to run the docker compose file for name
+docker-compose -f docker-compose-nombre.yml up -d
+
 # MongoDB Replica Set Configuration
 rs.initiate(
     {
