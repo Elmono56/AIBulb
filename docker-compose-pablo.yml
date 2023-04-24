@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  sanJose:     # 10.10.0.11
+    image: mongo:latest
+    container_name: sanJose
+    command: mongod --port 27017 --shardsvr --replSet repCR --bind_ip_all
+    ports:
+      - 27023:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.11
+    volumes:
+      - sanJose:/data/db
+
+  guate:       # 10.10.0.13
+    image: mongo:latest
+    container_name: guate
+    command: mongod --port 27017 --shardsvr --replSet repGuate --bind_ip_all
+    ports:
+      - 27024:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.13
+    volumes:
+      - guate:/data/db
+
+volumes:
+  sanJose:
+  guate:
+
+networks:
+  mongo-vpn:
+    name: mongo-vpn 
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.0/16

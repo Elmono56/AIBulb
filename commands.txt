@@ -1,11 +1,11 @@
 # MongoDB Replica Set Configuration
-rs.initiate(        #intento de conexion
+rs.initiate(
     {
      _id: "repConfAiBulb",
      configsvr: true,
      members: [
-       { _id : 0, host : "25.7.82.205:12975" },
-       { _id : 1, host : "25.7.82.205:12976" }
+       { _id : 0, host : "25.7.82.205:27017" },
+       { _id : 1, host : "25.7.106.45:27018" }
      ]
    }
  );

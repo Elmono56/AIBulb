@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  aiConfig2:
+    image: mongo:latest
+    container_name: aiConfig2
+    command: mongod --configsvr --replSet repConfAiBulb --port 27017 --dbpath /data/configdb
+    ports:
+      - 27018:27017
+    volumes:
+      - aiconfig2:/data/configdb
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.6
+    deploy:
+      replicas: 1
+    restart: unless-stopped
+
+  limon:      # 10.10.0.12
+    image: mongo:latest
+    container_name: limon
+    command: mongod --port 27017 --shardsvr --replSet repCR --bind_ip_all
+    ports:
+      - 27025:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.12
+    volumes:
+      - limon:/data/db
+
+  xela:       # 10.10.0.14
+    image: mongo:latest
+    container_name: xela
+    command: mongod --port 27017 --shardsvr --replSet repGuate --bind_ip_all
+    ports:
+      - 27026:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.14
+    volumes:
+      - xela:/data/db
+
+volumes:
+  aiconfig2:
+  limon:
+  xela:
+
+networks:
+  mongo-vpn:
+    name: mongo-vpn 
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.0/16

@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  westCoast:     # 10.10.0.8
+    image: mongo:latest
+    container_name: westCoast
+    command: mongod --port 27017 --shardsvr --replSet repUSA --dbpath /data/db --bind_ip_all
+    ports:
+      - 27021:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.8
+    volumes:
+      - westCoast:/data/db
+
+  centroSur:  # 10.10.0.10
+    image: mongo:latest
+    container_name: centroSur
+    command: mongod --port 27017 --shardsvr --replSet repMex --bind_ip_all
+    ports:
+      - 27022:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.10
+    volumes:
+      - centroSur:/data/db
+
+volumes:
+  westCoast:
+  centroSur:
+
+networks:
+  mongo-vpn:
+    name: mongo-vpn 
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.0/16

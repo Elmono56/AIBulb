@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  aiConfig1:
+    container_name: aiConfig1
+    image: mongo:latest
+    command: mongod --configsvr --replSet repConfAiBulb --port 27017 --dbpath /data/configdb --bind_ip_all
+    ports:
+      - 27017:27017
+    volumes:
+      - aiconfig1:/data/configdb
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.5
+    deploy:
+      replicas: 1
+    restart: unless-stopped
+
+  eastCoast:
+    image: mongo:latest
+    container_name: eastCoast
+    command: mongod --port 27017 --shardsvr --replSet repUSA --dbpath /data/db --bind_ip_all
+    ports:
+      - 27019:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.7
+    volumes:
+      - eastCoast:/data/db
+
+  norte:
+    image: mongo:latest
+    container_name: norte
+    command: mongod --port 27017 --shardsvr --replSet repMex --bind_ip_all
+    ports:
+      - 27020:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.9
+    volumes:
+      - norte:/data/db
+
+
+volumes:
+  aiconfig1:
+  eastCoast:
+  norte:
+
+networks:
+  mongo-vpn:
+    name: mongo-vpn 
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.10.0.0/16
