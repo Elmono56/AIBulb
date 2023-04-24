@@ -399,30 +399,30 @@ db.createCollection("HistorialCompras", {
 //configuracion
 
 db.createCollection("configuracion", {
-  validator: {
-    $jsonSchema: {
+   validator: {
+      $jsonSchema: {
       bsonType: "object",
       required: [
-        "parametro",
-        "valor",
-        "descripcion"
+         "parametro",
+         "valor",
+         "descripcion"
       ],
       properties: {
-        parametro: {
-          bsonType: "string",
-          description: "Nombre del parámetro de configuración"
-        },
-        valor: {
-          bsonType: ["string", "int", "bool", "double"],
-          description: "Valor del parámetro de configuración"
-        },
-        descripcion: {
-          bsonType: "string",
-          description: "Descripción del parámetro de configuración"
-        }
+         parametro: {
+            bsonType: "string",
+            description: "Nombre del parámetro de configuración"
+         },
+         valor: {
+            bsonType: ["string", "int", "bool", "double"],
+            description: "Valor del parámetro de configuración"
+         },
+         descripcion: {
+            bsonType: "string",
+            description: "Descripción del parámetro de configuración"
+         }
       }
-    }
-  }
+      }
+   }
 });
 
 

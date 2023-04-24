@@ -5,8 +5,8 @@ services:
     container_name: aiConfig1
     image: mongo:latest
     command: mongod --configsvr --replSet repConfAiBulb --port 27017 --dbpath /data/configdb
-    ports:
-      - 12975:27017
+    # ports:
+    #   - 12975:27017
     volumes:
       - aiconfig1:/data/configdb
     networks:
@@ -20,8 +20,8 @@ services:
     image: mongo:latest
     container_name: aiConfig2
     command: mongod --configsvr --replSet repConfAiBulb --port 27017 --dbpath /data/configdb
-    ports:
-      - 12976:27017
+    # ports:
+    #   - 12976:27017
     volumes:
       - aiconfig2:/data/configdb
     networks:
@@ -36,7 +36,7 @@ services:
     container_name: aiRouter1
     command: mongos --port 27017 --configdb repConfAiBulb/10.10.0.5:27017,10.10.0.6:27017 --bind_ip_all
     ports:
-      - 27017:27017
+      - "27017:27017"
     networks:
       mongo-vpn:
         ipv4_address: 10.10.0.2
