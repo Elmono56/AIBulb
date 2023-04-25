@@ -25,9 +25,27 @@ services:
     volumes:
       - centroSur:/data/db
 
+  usa-arb:     # 10.10.0.15
+    image: mongo:latest
+    container_name: usa-arb
+    command: mongod --port 27017 --dbpath /data/db --replSet repUSA
+    ports:
+      - 27030:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.15
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == usa
+    volumes:
+      - usa-arb:/data/db
+
 volumes:
   westCoast:
   centroSur:
+  usa-arb:
 
 networks:
   mongo-vpn:

@@ -25,9 +25,27 @@ services:
     volumes:
       - guate:/data/db
 
+  guate-arb:  # 10.10.0.18
+    image: mongo:latest
+    container_name: guate-arb
+    command: mongod --port 27017 --dbpath /data/db --replSet repGuate
+    ports:
+      - 27031:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.18
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == guatemala
+    volumes:
+      - guate-arb:/data/db
+
 volumes:
   sanJose:
   guate:
+  guate-arb:
 
 networks:
   mongo-vpn:

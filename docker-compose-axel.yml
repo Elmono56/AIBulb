@@ -40,10 +40,28 @@ services:
     volumes:
       - xela:/data/db
 
+  cr-arb:      # 10.10.0.17
+    image: mongo:latest
+    container_name: cr-arb
+    command: mongod --port 27017 --dbpath /data/db --replSet repCR
+    ports:
+      - 27032:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.17
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == costa_rica
+    volumes:
+      - cr-arb:/data/db
+
 volumes:
   aiconfig2:
   limon:
   xela:
+  cr-arb:
 
 networks:
   mongo-vpn:

@@ -70,10 +70,28 @@ services:
       mongo-vpn:
         ipv4_address: 10.10.0.4
 
+  mex-arb:     # 10.10.0.16
+    image: mongo:latest
+    container_name: mex-arb
+    command: mongod --port 27017 --dbpath /data/db --replSet repMex
+    ports:
+      - 27033:27017
+    networks:
+      mongo-vpn:
+        ipv4_address: 10.10.0.16
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.replica == mex
+    volumes:
+      - mex-arb:/data/db
+
 volumes:
   aiconfig1:
   eastCoast:
   norte:
+  mex-arb:
 
 networks:
   mongo-vpn:

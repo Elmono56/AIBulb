@@ -1,5 +1,5 @@
 # How to run the docker compose file for name
-docker-compose -f docker-compose-nombre.yml up -d
+docker-compose -f docker-compose-kevin.yml up -d
 
 # MongoDB Replica Set Configuration
 rs.initiate(
@@ -14,6 +14,7 @@ rs.initiate(
 );
 
 # MongoDB Shard Configuration
+# Kevin y Javier
 rs.initiate(
     {
      _id: "repUSA",
@@ -24,6 +25,7 @@ rs.initiate(
    }
 );
 
+# Kevin y Javier
 rs.initiate(
     {
      _id: "repMex",
@@ -33,7 +35,7 @@ rs.initiate(
      ]
    }
 );
-
+# Pablo y Axel
 rs.initiate(
     {
      _id: "repCR",
@@ -43,7 +45,7 @@ rs.initiate(
      ]
    }
 );
-
+# Pablo y Axel
 rs.initiate(
     {
      _id: "repGuate",
@@ -59,10 +61,10 @@ docker exec -it disprouter1 mongosh
 
 // hacemos shards con un server en cada replica,
 // no hace faltan los otros porque ya están en replica entre si
-sh.addShard("repUSA/:");
-sh.addShard("repMex/:");
-sh.addShard("repCR/:");
-sh.addShard("repGuate/:");
+sh.addShard("repUSA/25.7.82.205:-25.7.110.81:");
+sh.addShard("repMex/25.7.82.205:-25.7.110.81:");
+sh.addShard("repCR/25.7.158.238:-25.7.106.45:");
+sh.addShard("repGuate/25.7.158.238:-25.7.106.45:");
 
 sh.addShardTag("repUSA", "Estados Unidos");
 sh.addShardTag("repMex", "Mexico");
