@@ -1,5 +1,8 @@
 # How to run the docker compose file for name
-docker-compose -f docker-compose-kevin.yml up -d
+docker-compose -f docker-compose-nombre.yml up -d
+
+# How to delete all the info in the docker compose file for name
+docker-compose -f docker-compose-nombre.yml down -v --rmi all
 
 # MongoDB Replica Set Configuration
 rs.initiate(
@@ -57,14 +60,14 @@ rs.initiate(
 );
 
 # MongoDB Shard Configuration
-docker exec -it disprouter1 mongosh
+docker exec -it aiRouter1 mongosh
 
 // hacemos shards con un server en cada replica,
 // no hace faltan los otros porque ya están en replica entre si
-sh.addShard("repUSA/25.7.82.205:-25.7.110.81:");
-sh.addShard("repMex/25.7.82.205:-25.7.110.81:");
-sh.addShard("repCR/25.7.158.238:-25.7.106.45:");
-sh.addShard("repGuate/25.7.158.238:-25.7.106.45:");
+sh.addShard("repUSA/25.7.82.205:27019");
+sh.addShard("repMex/25.7.82.205:27020");
+sh.addShard("repCR/25.7.158.238:27023");
+sh.addShard("repGuate/25.7.106.45:27026");
 
 sh.addShardTag("repUSA", "Estados Unidos");
 sh.addShardTag("repMex", "Mexico");
@@ -150,10 +153,10 @@ db.adminCommand({
 // arbitro respectivo según la replica
 
 // Guatemala
-rs.addArb(":");
+rs.addArb("25.7.158.238:27031");
 // Costa Rica
-rs.addArb(":");
+rs.addArb("25.7.106.45:27032");
 // Mexico
-rs.addArb(":");
+rs.addArb("25.7.82.205:27033");
 // Estados Unidos
-rs.addArb(":");
+rs.addArb("25.7.110.81:27030");
