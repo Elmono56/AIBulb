@@ -4,6 +4,9 @@ docker-compose -f docker-compose-nombre.yml up -d
 # How to delete all the info in the docker compose file for name
 docker-compose -f docker-compose-nombre.yml down -v --rmi all
 
+# How to stop the docker compose file for name
+docker-compose -f docker-compose-nombre.yml down
+
 # MongoDB Replica Set Configuration
 rs.initiate(
     {
