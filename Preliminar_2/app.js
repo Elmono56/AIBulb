@@ -11,11 +11,14 @@ const kafka = new Kafka({
 
 const producer = kafka.producer();
 
-
 app.use(bodyParser.json());
 
 app.post('/update-content', async (req, res) => {
     const { id, contenido } = req.body;
+
+    if (!contenido) {
+        return res.status(400).send('Content is required');
+    }
 
     if (!id) {
         return res.status(400).send('ID is required');
