@@ -10,6 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+<<<<<<< HEAD
+    "kafka-node": "^5.0.0",
+=======
+>>>>>>> 516af17c0c72fcbf134b2e895b095d3debe701f7
     "kafkajs": "^2.2.4",
     "mongodb": "^5.4.0"
   }
