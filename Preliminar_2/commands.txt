@@ -1,3 +1,19 @@
+# Dependencias necesarias
+npm install express
+npm install kafkajs
+npm install mongodb
+
+# Para correr el proyecto
+node config-api.js
+node config-consumer.js
+# Uno primero y el otro después
+
 # Este comando es para insertar un registro en el collection
 db.usuarios.insertOne({"id": "1", "nombre": "Sara", "apellido": "Martínez", "email": "saramartinez@example.com", "contrasena": "p@ssw0rd", "fecha_nacimiento": "1998-06-15", "genero": "femenino", "ubicacion": "Mexico", "dispositivos_confianza": ["iPhone X", "MacBook Pro"], "digital_wallet": {"id": "1111", "saldo": 0, "transacciones": []}});
 
+# Esto es para probar el producer y el consumer
+docker exec -it kafka bash
+
+# Se corren en terminales direrentes
+kafka-console-producer.sh --bootstrap-server kafka:9092 --topic content-update
+kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic content-update --from-beginning

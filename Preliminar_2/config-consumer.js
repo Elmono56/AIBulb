@@ -8,7 +8,7 @@ const kafka = new Kafka({
 
 const consumer = kafka.consumer({ groupId: 'content-update' });
 
-const mongoUri = 'mongodb://root:example@localhost:27017,localhost:27018,localhost:27019/mydatabase?replicaSet=rs0';
+const mongoUri = 'mongodb://localhost:27017/mydatabase';
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function updateContent(id, contenido) {
@@ -18,27 +18,25 @@ async function updateContent(id, contenido) {
         const db = client.db();
         const collection = db.collection('usuarios');
 
-        await collection.updateOne(
-            { id: id },
-            { $set: { content: contenido } },
-            { upsert: true }
-        );
+        await collection.updateOne({ id: id }, { $set: { contenido } });
 
-        await client.close();
     } catch (err) {
         console.error('Error updating content:', err);
+    } finally {
+        await client.close();
     }
 }
 
 async function run() {
     await consumer.connect();
-    await consumer.subscribe({ topic: 'content-update', fromBeginning: false });
+    await consumer.subscribe({ topic: 'content-update', fromBeginning: true });
 
     await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
-            const id = parseInt(message.key);
-            const contenido = JSON.parse(message.value);
-            await updateContent(id, contenido);
+            console.log(message);
+            const content = message.value.toString();
+            const parsedContent = JSON.parse(content);
+            await updateContent(parsedContent.id, parsedContent.contenido);
         }
     });
 }
