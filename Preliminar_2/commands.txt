@@ -1,0 +1,3 @@
+# Este comando es para insertar un registro en el collection
+db.usuarios.insertOne({"id": "1", "nombre": "Sara", "apellido": "Martínez", "email": "saramartinez@example.com", "contrasena": "p@ssw0rd", "fecha_nacimiento": "1998-06-15", "genero": "femenino", "ubicacion": "Mexico", "dispositivos_confianza": ["iPhone X", "MacBook Pro"], "digital_wallet": {"id": "1111", "saldo": 0, "transacciones": []}});
+
