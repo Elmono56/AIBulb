@@ -32,9 +32,9 @@ async function run() {
     await consumer.subscribe({ topic: 'content-update', fromBeginning: true });
 
     await consumer.run({
-        eachMessage: async ({ topic, partition, message }) => {
-            console.log(message);
-            const content = message.value.toString();
+        eachMessage: async ({ topic, messages }) => {
+            console.log(messages);
+            const content = messages.value.toString();
             const parsedContent = JSON.parse(content);
             await updateContent(parsedContent.id, parsedContent.contenido);
         }
