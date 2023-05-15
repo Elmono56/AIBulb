@@ -14,13 +14,13 @@ const producer = kafka.producer();
 app.use(bodyParser.json());
 
 app.post('/update-content', async (req, res) => {
-    const { id, contenido } = req.body;
+    const { ID, contenido } = req.body;
 
     if (!contenido) {
         return res.status(400).send('Content is required');
     }
 
-    if (!id) {
+    if (!ID) {
         return res.status(400).send('ID is required');
     }
 
@@ -30,7 +30,7 @@ app.post('/update-content', async (req, res) => {
         await producer.send({
             topic: 'content-update',
             messages: [
-                { key: String(id), value: JSON.stringify(contenido) }
+                { key: String(ID), value: JSON.stringify(contenido) }
             ]
         });
 
