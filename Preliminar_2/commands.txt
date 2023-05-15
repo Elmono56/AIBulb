@@ -18,4 +18,17 @@ docker exec -it kafka bash
 kafka-console-producer.sh --bootstrap-server kafka:9092 --topic content-update
 kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic content-update --from-beginning
 
+
+
 docker run --rm -it --net desktop_Network_Caso4 --ip 10.0.0.50 -v "/Users/sebastiancruz/Desktop/Bases_II-Caso_4/Preliminar_2/logstash/pipeline:/usr/share/logstash/pipeline/" -v "/Users/sebastiancruz/Desktop/Bases_II-Caso_4/Preliminar_2/logstash/logstashconfig:/usr/share/logstash/config/" logstash-mongo:latest
+
+
+# Insertar registros de servicios
+db.servicios.insertOne({"ID":"1","nombre": "Limpieza de casa", "descripcion": "Servicio de limpieza general de hogares", "categoria": "local","opcionesPago": ["efectivo", "tarjeta"], "ubicacion": "Mexico","paquetes": [{"nombre": "Estandar", "precio": 75.00,"moneda": "USD"}]});
+db.servicios.insertOne({"ID":"2","nombre": "Traducción de documentos", "descripcion": "Servicio de traducción de documentos de inglés a español", "categoria": "global", "opcionesPago": ["transferencia", "PayPal"], "ubicacion": "Estados Unidos","paquetes": [{"nombre": "Estandar", "precio": 175.00,"moneda": "USD"}]});
+db.servicios.insertOne({"ID":"3","nombre": "Diseño de logotipos", "descripcion": "Servicio de diseño de logotipos para empresas", "categoria": "local", "opcionesPago": ["tarjeta"], "ubicacion": "Costa Rica","paquetes": [{"nombre": "Estandar", "precio": 275.00,"moneda": "USD"}]});
+db.servicios.insertOne({"ID":"4","nombre": "Catering para eventos", "descripcion": "Servicio de catering para eventos y celebraciones", "categoria": "local", "opcionesPago": ["efectivo"], "ubicacion": "Guatemala","paquetes": [{"nombre": "Estandar", "precio": 375.00,"moneda": "USD"}]});
+db.servicios.insertOne({"ID":"5","nombre": "Masaje relajante", "descripcion": "Masaje relajante de cuerpo completo", "categoria": "local", "opcionesPago": ["efectivo", "tarjeta de crédito"], "ubicacion": "Costa Rica","paquetes": [{"nombre": "Estandar", "precio": 475.00,"moneda": "USD"}]});
+db.servicios.insertOne({"ID":"6","nombre": "Limpieza facial", "descripcion": "Tratamiento de limpieza facial con productos naturales", "categoria": "local", "opcionesPago": ["efectivo", "tarjeta de débito"], "ubicacion": "Mexico", "paquetes": [{"nombre": "Básico", "precio": 35.00}, {"nombre": "Premium", "precio": 50.00}, {"nombre": "VIP", "precio": 70.00,"moneda": "USD"}]});
+db.servicios.insertOne({"ID":"7","nombre": "Diseño de logotipo", "descripcion": "Diseño de logotipo para empresas", "categoria": "global", "opcionesPago": ["transferencia bancaria", "PayPal"], "ubicacion": "Estados Unidos", "paquetes": [{"nombre": "Estándar", "precio": 200.00}, {"nombre": "Premium", "precio": 300.00}, {"nombre": "VIP", "precio": 500.00,"moneda": "USD"}]});
+db.servicios.insertOne({"ID":"8","nombre": "Clases de idiomas", "descripcion": "Clases de inglés para principiantes", "categoria": "global", "opcionesPago": ["efectivo", "transferencia bancaria"], "ubicacion": "Guatemala", "paquetes": [{"nombre": "Básico", "precio": 30.00}, {"nombre": "Intermedio", "precio": 40.00}, {"nombre": "Avanzado", "precio": 50.00,"moneda": "USD"}]});

@@ -8,7 +8,7 @@ const kafka = new Kafka({
 
 const consumer = kafka.consumer({ groupId: 'content-update' });
 console.log('Testing consumer');
-const mongoUri = 'mongodb://localhost:27017/mydatabase';
+const mongoUri = 'mongodb://localhost:27017/AIBulb';
 const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
 console.log('Testing mongo');
 
