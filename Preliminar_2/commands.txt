@@ -17,3 +17,5 @@ docker exec -it kafka bash
 # Se corren en terminales direrentes
 kafka-console-producer.sh --bootstrap-server kafka:9092 --topic content-update
 kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic content-update --from-beginning
+
+docker run --rm -it --net desktop_Network_Caso4 --ip 10.0.0.50 -v "/Users/sebastiancruz/Desktop/Bases_II-Caso_4/Preliminar_2/logstash/pipeline:/usr/share/logstash/pipeline/" -v "/Users/sebastiancruz/Desktop/Bases_II-Caso_4/Preliminar_2/logstash/logstashconfig:/usr/share/logstash/config/" logstash-mongo:latest
