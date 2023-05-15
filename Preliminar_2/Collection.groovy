@@ -383,7 +383,7 @@ db.registroPedidos.insertOne(
          ciudad: "Ciudad de México",
          estado: "Distrito Federal",
          codigo_postal: "06700",
-         pais: "México"
+         pais: "Mexico"
       }
    }
 )
@@ -438,7 +438,7 @@ db.registroPedidos.insertOne(
          ciudad: null,
          estado: null,
          codigo_postal: null,
-         pais: null
+         pais: "Estados Unidos"
       }
    }
 )
@@ -490,7 +490,7 @@ db.registroPedidos.insertOne(
          ciudad: "Ciudad de México",
          estado: "Distrito Federal",
          codigo_postal: "11560",
-         pais: "México"
+         pais: "Mexico"
       }
    }
 )
@@ -543,7 +543,7 @@ db.registroPedidos.insertOne(
          ciudad: "Ciudad de México",
          estado: "Distrito Federal",
          codigo_postal: "06140",
-         pais: "México"
+         pais: "Mexico"
       }
    }
 )
@@ -595,7 +595,7 @@ db.registroPedidos.insertOne(
          ciudad: "Ciudad de México",
          estado: "Distrito Federal",
          codigo_postal: "06140",
-         pais: "México"
+         pais: "Mexico"
       },
       Vehiculo: {
          tipo: "Sedán mediano",
