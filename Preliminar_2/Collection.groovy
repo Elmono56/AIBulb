@@ -1,6 +1,6 @@
 db.HistorialConversaciones.insertOne(
    {
-      ID: 5,
+      ID: 1,
       historial:[
          {
             consulta: "¿Tienen servicio de delivery para alimentos?",
@@ -31,7 +31,6 @@ db.HistorialConversaciones.insertOne(
             proveedor: "Food Express S.A.",
             tipo: {
               descripcion: "pago por uso",
-              recurrencia: "única vez",
               precio: 5
             },
             proveedor_ID: "FE001"
@@ -44,7 +43,6 @@ db.HistorialConversaciones.insertOne(
             proveedor: "Fast Food Express S.A.",
             tipo: {
               descripcion: "pago por uso",
-              recurrencia: "diaria",
               precio: 3
             },
             proveedor_ID: "FFE001"
@@ -55,7 +53,6 @@ db.HistorialConversaciones.insertOne(
             proveedor: "Gourmet Food S.A.",
             tipo: {
               descripcion: "suscripción",
-              recurrencia: "mensual",
               precio: 15
             },
             proveedor_ID: "GF001"
@@ -65,6 +62,280 @@ db.HistorialConversaciones.insertOne(
    }
 )
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+db.HistorialConversaciones.insertOne(
+   {
+      ID: 2,
+      historial:[
+         {
+            consulta: "¿Qué tipo de vehículos alquilan?",
+            respuesta: "Alquilamos una amplia variedad de vehículos, incluyendo autos, camionetas, SUVs y motocicletas."
+         },
+         {
+            consulta: "¿Cuáles son los requisitos para alquilar un vehículo?",
+            respuesta: "Debe tener al menos 21 años de edad, una licencia de conducir válida y una tarjeta de crédito con fondos suficientes para cubrir el depósito de garantía y el costo del alquiler."
+         },
+         {
+            consulta: "¿Cuáles son sus tarifas?",
+            respuesta: "Las tarifas dependen del tipo de vehículo que desea alquilar, la duración del alquiler y la ubicación. Puede encontrar nuestras tarifas actuales en nuestra página web."
+         },
+         {
+            consulta: "Necesito alquilar un auto por una semana en la ciudad de Nueva York",
+            respuesta: "Perfecto, tenemos varias opciones disponibles para alquilar un auto en la ciudad de Nueva York. ¿Puede proporcionarme más detalles sobre su preferencia de vehículo y fechas de alquiler?"
+         },
+         {
+            consulta: "Me gustaría alquilar un sedán mediano del 1 de junio al 8 de junio",
+            respuesta: "Entendido. Hay un sedán mediano disponible en nuestra ubicación de Manhattan que satisface sus necesidades. El costo total del alquiler es de $350, que incluye el depósito de garantía. ¿Le gustaría proceder con la reserva?"
+         },
+         {
+            consulta: "Sí, procedamos con la reserva",
+            respuesta: "Excelente, su reserva ha sido confirmada. Por favor, asegúrese de leer y firmar nuestro contrato de alquiler antes de recoger el vehículo. ¡Gracias por elegirnos!"
+         }
+      ],
+      matches: ["alquiler", "vehículo", "tarifas"],
+      servicios: [
+         {
+            nombre: "Alquiler de vehículos",
+            referencia: "https://www.ejemplo.com/alquiler-vehiculos",
+            proveedor: "Rent-a-car S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 50
+            },
+            proveedor_ID: "RC001"
+         }
+      ],
+      servicios_similares: [
+         {
+            nombre: "Alquiler de motocicletas",
+            referencia: "https://www.ejemplo.com/alquiler-motocicletas",
+            proveedor: "MotoRent S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 30
+            },
+            proveedor_ID: "MR001"
+         },
+         {
+            nombre: "Alquiler de camionetas",
+            referencia: "https://www.ejemplo.com/alquiler-camionetas",
+            proveedor: "TruckRental S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 75
+            },
+            proveedor_ID: "TR001"
+         }
+      ],
+      ID_Cliente: "CL002"
+   }
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+db.HistorialConversaciones.insertOne(
+   {
+      ID: 3,
+      historial:[
+         {
+            consulta: "Buenos días, ¿qué servicios ofrecen?",
+            respuesta: "¡Buenos días! Ofrecemos una amplia variedad de servicios. ¿En qué podemos ayudarle?"
+         },
+         {
+            consulta: "Estoy buscando un servicio de limpieza para mi hogar",
+            respuesta: "¡Por supuesto! Contamos con un servicio de limpieza residencial que puede ser programado semanal o quincenalmente."
+         },
+         {
+            consulta: "¿Cuál es el precio del servicio de limpieza?",
+            respuesta: "El precio del servicio de limpieza residencial depende del tamaño de su hogar y de la frecuencia del servicio. ¿Podría proporcionarme más detalles?"
+         },
+         {
+            consulta: "Mi hogar tiene 3 habitaciones y 2 baños. Me gustaría programar el servicio semanalmente",
+            respuesta: "Perfecto, el precio del servicio semanal para un hogar de 3 habitaciones y 2 baños es de $100. ¿Desea programar el servicio ahora?"
+         },
+         {
+            consulta: "Sí, me gustaría programarlo para el próximo lunes a las 9:00am",
+            respuesta: "Entendido, su servicio de limpieza ha sido programado para el próximo lunes a las 9:00am. ¿Necesita ayuda con algo más?"
+         }
+      ],
+      matches: ["servicios", "limpieza", "residencial"],
+      servicios: [
+         {
+            nombre: "Servicio de limpieza residencial",
+            referencia: "https://www.ejemplo.com/servicio-limpieza-residencial",
+            proveedor: "Clean Homes S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 100
+            },
+            proveedor_ID: "CH001"
+         }
+      ],
+      servicios_similares: [
+         {
+            nombre: "Servicio de limpieza de oficinas",
+            referencia: "https://www.ejemplo.com/servicio-limpieza-oficinas",
+            proveedor: "Clean Offices S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 80
+            },
+            proveedor_ID: "CO001"
+         },
+         {
+            nombre: "Servicio de limpieza de ventanas",
+            referencia: "https://www.ejemplo.com/servicio-limpieza-ventanas",
+            proveedor: "Clean Windows S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 50
+            },
+            proveedor_ID: "CW001"
+         }
+      ],
+      ID_Cliente: "CL003"
+   }
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+db.HistorialConversaciones.insertOne(
+   {
+      ID: 4,
+      historial:[
+         {
+            consulta: "Hola, estoy interesado en contratar un servicio de jardinería",
+            respuesta: "¡Hola! ¡Claro que sí! ¿Podría proporcionarme más detalles sobre el servicio que está buscando?"
+         },
+         {
+            consulta: "Quisiera un servicio semanal para el cuidado de mi jardín",
+            respuesta: "¡Por supuesto! Contamos con un servicio semanal de cuidado de jardines que incluye corte de césped, poda y fertilización."
+         },
+         {
+            consulta: "¿Cuál es el precio del servicio?",
+            respuesta: "El precio del servicio de cuidado de jardines depende del tamaño de su jardín y de la frecuencia del servicio. ¿Podría proporcionarme más detalles?"
+         },
+         {
+            consulta: "Mi jardín es de tamaño mediano, ¿cuál sería el precio para el servicio semanal?",
+            respuesta: "Para un jardín de tamaño mediano, el precio para el servicio semanal sería de $80. ¿Le gustaría programar el servicio?"
+         },
+         {
+            consulta: "Sí, me gustaría programarlo para los sábados a las 10:00am",
+            respuesta: "Entendido, su servicio de cuidado de jardines ha sido programado para los sábados a las 10:00am. ¿Necesita ayuda con algo más?"
+         }
+      ],
+      matches: ["jardinería", "servicio", "semanal"],
+      servicios: [
+         {
+            nombre: "Servicio de cuidado de jardines",
+            referencia: "https://www.ejemplo.com/servicio-cuidado-jardines",
+            proveedor: "Green Gardens S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 80
+            },
+            proveedor_ID: "GG001"
+         }
+      ],
+      servicios_similares: [
+         {
+            nombre: "Servicio de diseño de jardines",
+            referencia: "https://www.ejemplo.com/servicio-diseno-jardines",
+            proveedor: "Artistic Gardens S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 150
+            },
+            proveedor_ID: "AG001"
+         },
+         {
+            nombre: "Servicio de poda de árboles",
+            referencia: "https://www.ejemplo.com/servicio-poda-arboles",
+            proveedor: "Tree Care S.A.",
+            tipo: {
+              descripcion: "pago por uso",
+              precio: 120
+            },
+            proveedor_ID: "TC001"
+         }
+      ],
+      ID_Cliente: "CL004"
+   }
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+db.HistorialConversaciones.insertOne(
+   {
+      ID: 5,
+      historial:[
+         {
+            consulta: "Hola, ¿tienen servicio de reparación de electrodomésticos?",
+            respuesta: "Buenas tardes, sí, ofrecemos servicio de reparación de electrodomésticos. ¿En qué podemos ayudarle?"
+         },
+         {
+            consulta: "Tengo una lavadora que no funciona, ¿pueden repararla?",
+            respuesta: "Sí, podemos reparar su lavadora. ¿Podría proporcionarme la marca y el modelo del electrodoméstico?"
+         },
+         {
+            consulta: "Es una lavadora LG modelo XYZ123",
+            respuesta: "Entendido, la reparación de su lavadora tendría un costo de $150. ¿Le gustaría programar una cita para la reparación?"
+         },
+         {
+            consulta: "Sí, ¿cuál es la próxima fecha disponible?",
+            respuesta: "La próxima fecha disponible es el próximo jueves a las 10:00am. ¿Le funciona esa fecha y hora?"
+         },
+         {
+            consulta: "Sí, me funciona. ¿Qué debo hacer para programar la cita?",
+            respuesta: "Para programar la cita, necesitaré su nombre completo, dirección y número de teléfono. Además, le pediré que proporcione una tarjeta de crédito para reservar la cita. ¿Está bien?"
+         },
+         {
+            consulta: "Sí, está bien. Mi nombre es Juan Pérez, mi dirección es Calle 123, número 456, y mi teléfono es 555-1234",
+            respuesta: "Gracias, Juan. He programado su cita para el próximo jueves a las 10:00am. Recibirá un correo electrónico con los detalles de su cita. ¿Necesita ayuda con algo más?"
+         }
+      ],
+      matches: ["reparación", "electrodomésticos", "lavadora"],
+      servicios: [
+         {
+            nombre: "Reparación de electrodomésticos",
+            referencia: "https://www.ejemplo.com/reparacion-electrodomesticos",
+            proveedor: "ReparaTodo S.A.",
+            tipo: {
+              descripcion: "pago por servicio",
+              precio: 150
+            },
+            proveedor_ID: "ZT001"
+         }
+      ],
+      servicios_similares: [
+         {
+            nombre: "Mantenimiento de aire acondicionado",
+            referencia: "https://www.ejemplo.com/mantenimiento-aire-acondicionado",
+            proveedor: "CoolFix S.A.",
+            tipo: {
+              descripcion: "pago por servicio",
+              precio: 100
+            },
+            proveedor_ID: "ZF001"
+         },
+         {
+            nombre: "Reparación de refrigeradores",
+            referencia: "https://www.ejemplo.com/reparacion-refrigeradores",
+            proveedor: "Frigos S.A.",
+            tipo: {
+              descripcion: "pago por servicio",
+              precio: 200
+            },
+            proveedor_ID: "ZR001"
+         }
+      ],
+      ID_Cliente: "CL005"
+   }
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 db.registroPedidos.insertOne(
@@ -117,6 +388,7 @@ db.registroPedidos.insertOne(
    }
 )
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
