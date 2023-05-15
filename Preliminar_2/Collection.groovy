@@ -390,6 +390,229 @@ db.registroPedidos.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+db.registroPedidos.insertOne(
+   {
+      Numero_Seguimiento: "SEG002",
+      ID_Pedido: "PED002",
+      ID_Cliente: "CL005",
+      Completado: false,
+      Fecha_Pedido: ISODate("2023-05-14T16:30:00Z"),
+      Fecha_Entrega: null,
+      Servicio: {
+         nombre: "Reparación de electrodomésticos",
+         referencia: "https://www.ejemplo.com/reparacion-electrodomesticos",
+         proveedor: "ReparaTodo S.A.",
+         proveedor_contacto: {
+            correo_electronico: "info@reparatodo.com",
+            telefono: "+52 555 123 7890"
+         },
+         tipo: {
+            descripcion: "pago por servicio",
+            precio: 150
+         },
+         proveedor_ID: "ZT001",
+         veces_utilizado: 2,
+         ultima_fecha_uso: ISODate("2022-12-15T10:30:00Z")
+      },
+      Monto: {
+         subtotal: 150.00,
+         impuestos: 24.00,
+         envio: 0,
+         descuentos: 0,
+         total: 174.00
+      },
+      Metodo_Pago: {
+         tipo: "Tarjeta de crédito",
+         informacion: {
+            numero_tarjeta: "**** **** **** 4321",
+            nombre_tarjeta: "Juan Pérez",
+            fecha_expiracion: "06/26",
+            codigo_seguridad: "***"
+         }
+      },
+      Direccion_Entrega: {
+         nombre_destinatario: "Juan Pérez",
+         calle: "Calle 123",
+         numero: "456",
+         colonia: null,
+         ciudad: null,
+         estado: null,
+         codigo_postal: null,
+         pais: null
+      }
+   }
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
- 
+
+
+ db.registroPedidos.insertOne(
+   {
+      Numero_Seguimiento: "SEG002",
+      ID_Pedido: "PED002",
+      ID_Cliente: "CL003",
+      Completado: true,
+      Fecha_Pedido: ISODate("2023-05-14T16:30:00Z"),
+      Fecha_Entrega: ISODate("2023-05-16T10:00:00Z"),
+      Servicio: {
+         nombre: "Servicio de limpieza residencial",
+         referencia: "https://www.ejemplo.com/servicio-limpieza-residencial",
+         proveedor: "Clean Homes S.A.",
+         proveedor_contacto: {
+            correo_electronico: "info@cleanhomes.com",
+            telefono: "+52 555 987 6543"
+         },
+         tipo: "pago por uso",
+         proveedor_ID: "CH001",
+         veces_utilizado: 5,
+         ultima_fecha_uso: ISODate("2023-05-09T11:15:00Z")
+      },
+      Monto: {
+         subtotal: 100.00,
+         impuestos: 16.00,
+         envio: 0.00,
+         descuentos: 10.00,
+         total: 106.00
+      },
+      Metodo_Pago: {
+         tipo: "Tarjeta de crédito",
+         informacion: {
+            numero_tarjeta: "**** **** **** 5678",
+            nombre_tarjeta: "Jane Smith",
+            fecha_expiracion: "05/25",
+            codigo_seguridad: "***"
+         }
+      },
+      Direccion_Entrega: {
+         nombre_destinatario: "Jane Smith",
+         calle: "Calle 7",
+         numero: "123",
+         colonia: "Polanco",
+         ciudad: "Ciudad de México",
+         estado: "Distrito Federal",
+         codigo_postal: "11560",
+         pais: "México"
+      }
+   }
+)
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+db.registroPedidos.insertOne(
+   {
+      Numero_Seguimiento: "SEG003",
+      ID_Pedido: "PED003",
+      ID_Cliente: "CL004",
+      Completado: false,
+      Fecha_Pedido: ISODate("2023-05-14T17:45:00Z"),
+      Fecha_Entrega: null,
+      Servicio: {
+         nombre: "Servicio de cuidado de jardines",
+         referencia: "https://www.ejemplo.com/servicio-cuidado-jardines",
+         proveedor: "Green Gardens S.A.",
+         proveedor_contacto: {
+            correo_electronico: "info@greengardens.com",
+            telefono: "+52 555 123 4567"
+         },
+         tipo: "pago por uso",
+         proveedor_ID: "GG001",
+         veces_utilizado: 2,
+         ultima_fecha_uso: ISODate("2023-05-09T14:30:00Z")
+      },
+      Monto: {
+         subtotal: 80.00,
+         impuestos: 12.80,
+         envio: 0.00,
+         descuentos: 0.00,
+         total: 92.80
+      },
+      Metodo_Pago: {
+         tipo: "Tarjeta de crédito",
+         informacion: {
+            numero_tarjeta: "**** **** **** 1234",
+            nombre_tarjeta: "John Doe",
+            fecha_expiracion: "10/25",
+            codigo_seguridad: "***"
+         }
+      },
+      Direccion_Entrega: {
+         nombre_destinatario: "John Doe",
+         calle: "Calle 10",
+         numero: "456",
+         colonia: "Condesa",
+         ciudad: "Ciudad de México",
+         estado: "Distrito Federal",
+         codigo_postal: "06140",
+         pais: "México"
+      }
+   }
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+db.registroPedidos.insertOne(
+   {
+      Numero_Seguimiento: "SEG003",
+      ID_Pedido: "PED003",
+      ID_Cliente: "CL004",
+      Completado: false,
+      Fecha_Pedido: ISODate("2023-05-14T17:45:00Z"),
+      Fecha_Entrega: null,
+      Servicio: {
+         nombre: "Alquiler de vehículos",
+         referencia: "https://www.ejemplo.com/alquiler-vehiculos",
+         proveedor: "Rent-a-car S.A.",
+         proveedor_contacto: {
+            correo_electronico: "info@rentacar.com",
+            telefono: "+52 555 123 4567"
+         },
+         tipo: "pago por uso",
+         proveedor_ID: "RC001",
+         veces_utilizado: 1,
+         ultima_fecha_uso: ISODate("2023-05-14T17:45:00Z")
+      },
+      Monto: {
+         subtotal: 350.00,
+         impuestos: 56.00,
+         envio: 0.00,
+         descuentos: 0.00,
+         total: 406.00
+      },
+      Metodo_Pago: {
+         tipo: "Tarjeta de crédito",
+         informacion: {
+            numero_tarjeta: "**** **** **** 1234",
+            nombre_tarjeta: "John Doe",
+            fecha_expiracion: "10/25",
+            codigo_seguridad: "***"
+         }
+      },
+      Direccion_Entrega: {
+         nombre_destinatario: "John Doe",
+         calle: "Calle 10",
+         numero: "456",
+         colonia: "Condesa",
+         ciudad: "Ciudad de México",
+         estado: "Distrito Federal",
+         codigo_postal: "06140",
+         pais: "México"
+      },
+      Vehiculo: {
+         tipo: "Sedán mediano",
+         modelo: "Toyota Corolla",
+         año: 2022,
+         placa: "ABC-123",
+         kilometraje: 5000,
+         tanque_lleno: true,
+         caracteristicas: ["Aire acondicionado", "Radio AM/FM", "Sistema de navegación"]
+      },
+      Duracion_Alquiler: {
+         fecha_inicio: ISODate("2023-06-01T09:00:00Z"),
+         fecha_fin: ISODate("2023-06-08T17:00:00Z"),
+         dias_alquiler: 7
+      }
+   }
+)
