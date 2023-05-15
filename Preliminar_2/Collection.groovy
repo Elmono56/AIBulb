@@ -340,7 +340,7 @@ db.HistorialConversaciones.insertOne(
 
 db.registroPedidos.insertOne(
    {
-      Numero_Seguimiento: "SEG001",
+      Numero_Seguimiento: "1",
       ID_Pedido: "PED001",
       ID_Cliente: "CL001",
       Completado: true,
@@ -392,9 +392,9 @@ db.registroPedidos.insertOne(
 
 db.registroPedidos.insertOne(
    {
-      Numero_Seguimiento: "SEG002",
+      Numero_Seguimiento: "2",
       ID_Pedido: "PED002",
-      ID_Cliente: "CL005",
+      ID_Cliente: "CL002",
       Completado: false,
       Fecha_Pedido: ISODate("2023-05-14T16:30:00Z"),
       Fecha_Entrega: null,
@@ -445,13 +445,10 @@ db.registroPedidos.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
  db.registroPedidos.insertOne(
    {
-      Numero_Seguimiento: "SEG002",
-      ID_Pedido: "PED002",
+      Numero_Seguimiento: "3",
+      ID_Pedido: "PED003",
       ID_Cliente: "CL003",
       Completado: true,
       Fecha_Pedido: ISODate("2023-05-14T16:30:00Z"),
@@ -503,8 +500,8 @@ db.registroPedidos.insertOne(
 
 db.registroPedidos.insertOne(
    {
-      Numero_Seguimiento: "SEG003",
-      ID_Pedido: "PED003",
+      Numero_Seguimiento: "4",
+      ID_Pedido: "PED004",
       ID_Cliente: "CL004",
       Completado: false,
       Fecha_Pedido: ISODate("2023-05-14T17:45:00Z"),
@@ -555,9 +552,9 @@ db.registroPedidos.insertOne(
 
 db.registroPedidos.insertOne(
    {
-      Numero_Seguimiento: "SEG003",
-      ID_Pedido: "PED003",
-      ID_Cliente: "CL004",
+      Numero_Seguimiento: "5",
+      ID_Pedido: "PED005",
+      ID_Cliente: "CL005",
       Completado: false,
       Fecha_Pedido: ISODate("2023-05-14T17:45:00Z"),
       Fecha_Entrega: null,
