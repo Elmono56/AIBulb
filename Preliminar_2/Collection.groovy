@@ -1,4 +1,4 @@
-db.HistorialConversaciones.insertOne(
+db.request.insertOne(
    {
       ID: 1,
       historial:[
@@ -64,7 +64,7 @@ db.HistorialConversaciones.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-db.HistorialConversaciones.insertOne(
+db.request.insertOne(
    {
       ID: 2,
       historial:[
@@ -134,7 +134,7 @@ db.HistorialConversaciones.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-db.HistorialConversaciones.insertOne(
+db.request.insertOne(
    {
       ID: 3,
       historial:[
@@ -200,7 +200,7 @@ db.HistorialConversaciones.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-db.HistorialConversaciones.insertOne(
+db.request.insertOne(
    {
       ID: 4,
       historial:[
@@ -267,7 +267,7 @@ db.HistorialConversaciones.insertOne(
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-db.HistorialConversaciones.insertOne(
+db.request.insertOne(
    {
       ID: 5,
       historial:[
@@ -338,7 +338,7 @@ db.HistorialConversaciones.insertOne(
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-db.registroPedidos.insertOne(
+db.logRequest.insertOne(
    {
       Numero_Seguimiento: "1",
       ID_Pedido: "PED001",
@@ -390,7 +390,7 @@ db.registroPedidos.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-db.registroPedidos.insertOne(
+db.logRequest.insertOne(
    {
       Numero_Seguimiento: "2",
       ID_Pedido: "PED002",
@@ -445,7 +445,7 @@ db.registroPedidos.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
- db.registroPedidos.insertOne(
+db.logRequest.insertOne(
    {
       Numero_Seguimiento: "3",
       ID_Pedido: "PED003",
@@ -498,7 +498,7 @@ db.registroPedidos.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-db.registroPedidos.insertOne(
+db.logRequest.insertOne(
    {
       Numero_Seguimiento: "4",
       ID_Pedido: "PED004",
@@ -550,7 +550,7 @@ db.registroPedidos.insertOne(
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-db.registroPedidos.insertOne(
+db.logRequest.insertOne(
    {
       Numero_Seguimiento: "5",
       ID_Pedido: "PED005",
