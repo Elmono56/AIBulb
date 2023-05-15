@@ -1,5 +1,25 @@
 {
-    "servicio_id": "",
-    "nuevo_precio": 85.00,
-    "nueva_moneda": "MXN"
+    "id": "1299",
+    "contenido": {
+        "nombre": "Servicio de limpieza",
+        "descripcion": "Limpieza de hogares y oficinas",
+        "categoria": "limpieza",
+        "ubicacion": "Mexico",
+        "opcionesPago": [
+            "efectivo",
+            "tarjeta"
+        ],
+        "paquetes": [
+            {
+                "nombre": "Paquete básico",
+                "precio": 100.00,
+                "moneda": "MXN"
+            },
+            {
+                "nombre": "Paquete premium",
+                "precio": 250.00,
+                "moneda": "MXN"
+            }
+        ]
+    }
 }
